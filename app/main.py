@@ -1,6 +1,3 @@
-"""
-Anki Card Generator - Main Application
-"""
 import os
 import tkinter as tk
 from tkinter import filedialog
@@ -8,7 +5,6 @@ from tkinter import filedialog
 from anki_utils import (
     create_folder_for_anki_cards,
     create_anki_cards_from_text_file,
-    create_anki_cards_from_csv_file,
     save_cards_to_csv
 )
 from gemini_generator import generate_anki_cards_with_gemini
@@ -200,7 +196,6 @@ def main():
     while True:
         print("\nChoose Menu Options:")
         print("1. Create Anki cards from text file")
-        print("2. Create Anki cards from CSV file")
         print("3. Create folder for Anki cards")
         print("4. Generate Anki cards with Gemini AI")
         print("5. Batch create folders and cards")
@@ -221,22 +216,6 @@ def main():
                     output_path = input("Enter output CSV path: ")
                     delimiter = input("Enter delimiter (default ';'): ") or ';'
                     save_cards_to_csv(cards, output_path, delimiter)
-            else:
-                print("File not found!")
-                
-        elif choice == "2":
-            print("\n-- Creating Anki cards from CSV file --")
-            file_path = input("Enter CSV file path: ")
-            if os.path.exists(file_path):
-                delimiter = input("Enter delimiter (default ','): ") or ','
-                cards = create_anki_cards_from_csv_file(file_path, delimiter)
-                print(f"Created {len(cards)} cards from CSV file")
-                
-                convert_option = input("Convert to different format? (y/n): ")
-                if convert_option.lower() == 'y':
-                    output_path = input("Enter output CSV path: ")
-                    new_delimiter = input("Enter new delimiter (default ';'): ") or ';'
-                    save_cards_to_csv(cards, output_path, new_delimiter)
             else:
                 print("File not found!")
                 

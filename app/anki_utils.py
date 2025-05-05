@@ -1,6 +1,3 @@
-"""
-Anki Card Generator - Utility Functions
-"""
 import os
 import csv
 from typing import List, Tuple

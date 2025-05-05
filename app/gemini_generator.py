@@ -1,6 +1,3 @@
-"""
-Anki Card Generator - Gemini AI Integration
-"""
 import json
 import re
 from typing import List, Tuple, Optional
